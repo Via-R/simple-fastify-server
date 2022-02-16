@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS "news" ("id" SERIAL PRIMARY KEY, "title" varchar(30), "description" varchar(30))

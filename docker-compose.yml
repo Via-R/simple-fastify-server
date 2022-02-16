@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  fastify_backend:
+    container_name: fastify_backend
+    build:
+      context: .
+    ports:
+      - '3000:3000'
+    env_file: .env
+    depends_on: 
+      - postgres
+
+  postgres:
+    container_name: postgres
+    hostname: postgres
+    image: 'postgres:13'
+    ports:
+      - '6432:5432'
+    restart: always
+    env_file: .env
+    volumes:
+      - fastify_volume:/var/lib/postgres/data
+      - ./db/create-tables.sql:/docker-entrypoint-initdb.d/create-tables.sql
+
+volumes:
+  fastify_volume: {}
