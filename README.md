@@ -14,6 +14,10 @@ Available endpoints:
 - `DELETE` `/news/:id` – Delete post
 
 ## How to launch
+Install the dependencies:
+
+    $ npm i
+
 To launch the server, run:
 
     $ npm start
